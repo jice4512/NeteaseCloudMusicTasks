@@ -17,7 +17,7 @@ class Pusher():
             return
         # 是否合并推送
         if not config['merge']:
-            exec('{}.push(data["title"], data["msg"], config)'.format(
+            exec('{}.push(data["title"], data["mdmsg"], data["textmsg"], config)'.format(
                 config['module']))
             return
 
@@ -32,5 +32,5 @@ class Pusher():
 
     def push(self):
         for data in self.datas.values():
-            exec('{}.push(data["title"], data["msg"], data["config"])'.format(
+            exec('{}.push(data["title"], data["msg"], data["textmsg"], data["config"])'.format(
                 data['config']['module']))
